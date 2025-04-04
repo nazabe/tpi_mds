@@ -36,6 +36,6 @@ public class Numero {
 		this.perso = perso;
 	}
 	
-	public Numero() {}
+	//public Numero() {}
 	
 }

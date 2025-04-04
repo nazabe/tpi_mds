@@ -98,7 +98,7 @@ public class Persona {
 	}
 
 
-	public Persona() {}
+	//public Persona() {}
 	
 	
 	@Override

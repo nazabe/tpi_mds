@@ -41,7 +41,7 @@ public class User {
 		this.perso = perso;
 	}
 	
-	public User() {}
+	//public User() {}
 	
 	
 }
