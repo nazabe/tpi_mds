@@ -1,7 +1,17 @@
+
+  *::before,
+  *::after {
+    box-sizing: flex;
+  }
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -24,11 +34,28 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+}
+
+/*
+body {
+  margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: sans-serif; 
+   background-color: #f0f0f0;
 }
+*/
 
 h1 {
   font-size: 3.2em;
