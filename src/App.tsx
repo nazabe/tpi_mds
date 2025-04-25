@@ -57,43 +57,21 @@ function App() {
         <div className={styles.topBarRight}>
           <span>SEGUINOS:</span>
           <div className={styles.topBarSocialIcons}>
-            <FaFacebookF />
-            <FaInstagram />
-            <FaGoogle />
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
+              <FaFacebookF />
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
+              <FaInstagram />
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Santa+Fe+718,+Resistencia,+Chaco" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
+              <FaGoogle />
+            </a>
           </div>
         </div>
       </div>
 
-      {/* ===================== Header / Navbar ===================== */}
-      <header className={styles.header}>
-        {/* Logo: Usando ruta pública si el archivo está en la carpeta /public */}
-        <img src="/logo.png" alt="Turno Belleza Logo" className={styles.logo} />
-        {/* Si el logo está en src/, impórtalo y úsalo:
-        import logoImage from './logo.png';
-        ... <img src={logoImage} alt="Turno Belleza Logo" className={styles.logo} />
-        */}
+      
 
-        {/* Navigation */}
-        <nav className={styles.nav}>
-          {/* Los href="#" son placeholders, idealmente irían a IDs de secciones (#quienes-somos, etc.) */}
-          <a href="#inicio" className={styles.navLink}>INICIO</a>
-          <a href="#quienes-somos" className={styles.navLink}>QUIENES SOMOS</a>
-          <a href="#profesionales" className={styles.navLink}>
-            PROFESIONALES <FaChevronDown size={12} />
-          </a>
-          <a href="#faq" className={styles.navLink}>PREGUNTAS FRECUENTES</a>
-        </nav>
-
-        {/* Action Buttons (para funcionalidades como búsqueda o menú móvil) */}
-        <div className={styles.navActions}>
-          <button className={styles.actionButton} aria-label="Buscar">
-            <FaSearch />
-          </button>
-          <button className={styles.actionButton} aria-label="Menu">
-            <FaBars />
-          </button>
-        </div>
-      </header>
 
       {/* ===================== Hero Section ===================== */}
       {/* Sección principal con la imagen de fondo y el mensaje destacado */}
@@ -233,9 +211,7 @@ function App() {
           <div className={styles.scrollWrapper}>
 
             {/* Flecha Izquierda (Visible en desktop/tablet, oculta en mobile con CSS) */}
-            <button className={`${styles.scrollArrow} ${styles.scrollArrowLeft}`} onClick={scrollLeft} aria-label="Scroll Left">
-              <FaChevronLeft />
-            </button>
+            
 
             {/* Contenedor que habilita el scroll horizontal de las tarjetas */}
             {/* Le asignamos la referencia para poder controlarlo con los botones */}
@@ -356,9 +332,16 @@ function App() {
             </div> {/* Fin servicesScrollContainer */}
 
             {/* Flecha Derecha (Visible en desktop/tablet, oculta en mobile con CSS) */}
+            <div className={styles.scrollArrowContainer}>
+            <button className={`${styles.scrollArrow} ${styles.scrollArrowLeft}`} onClick={scrollLeft} aria-label="Scroll Left">
+              <FaChevronLeft />
+            </button>
+
             <button className={`${styles.scrollArrow} ${styles.scrollArrowRight}`} onClick={scrollRight} aria-label="Scroll Right">
               <FaChevronRight />
             </button>
+          </div>
+
 
           </div> {/* Fin scrollWrapper */}
 

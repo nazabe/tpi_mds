@@ -133,7 +133,7 @@ body {
 /* ===================== Hero Section ===================== */
 /* Sección principal con fondo de imagen */
 .hero {
-  min-height: 500px; /* Altura mínima */
+  min-height: 85vh; /* Altura mínima */
   background-image: url('./background-makeup.png'); /* Ruta a tu imagen de fondo */
   background-size: cover;
   background-position: center right; /* Posiciona la imagen */
@@ -143,6 +143,14 @@ body {
   position: relative;
   background-color: #fdf8f5; /* Fondo de respaldo/fallback */
 }
+
+.scrollArrowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* espacio entre botones, ajustá a gusto */
+}
+
 
 /* Opcional: Capa semitransparente sobre la imagen si el texto no se lee bien */
 /* .hero::before {
