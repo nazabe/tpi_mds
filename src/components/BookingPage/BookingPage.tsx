@@ -23,37 +23,39 @@ interface Service {
   duration: string; // Duración (ej: "45 minutos")
   price: string; // Precio (ej: "$40000,00")
   icon?: React.ReactNode; // Icono opcional para el servicio (ej: <FaHeart />)
+   imageUrl?: string; // Añadimos un campo opcional para la URL de la imagen
   // Puedes añadir más campos si necesitas (ej: description, image)
 }
 
-// Datos de ejemplo de los servicios (Actualizados con los valores proporcionados)
-// Idealmente, estos datos vendrían de una API o un archivo de configuración central
-
+// Datos de ejemplo de los servicios con rutas de imagen corregidas (incluyendo /mds/)
 const servicesData: Service[] = [
   // Servicios Individuales - Masajes
-  { id: 1, name: "Masaje Anti-stress", duration: "50 minutos", price: "$12.000", icon: <FaHeart /> },
-  { id: 2, name: "Masaje Descontracturante", duration: "60 minutos", price: "$13.000", icon: <FaHeart /> },
-  { id: 3, name: "Masaje con Piedras Calientes", duration: "70 minutos", price: "$15.000", icon: <FaHeart /> },
-  { id: 4, name: "Masaje Circulatorio", duration: "45 minutos", price: "$11.000", icon: <FaHeart /> },
+  { id: 1, name: "Masaje Anti-stress", duration: "50 minutos", price: "$12.000", icon: <FaHeart />, imageUrl: "/mds/images/services/massage-3795693_1280.jpg" },
+  { id: 2, name: "Masaje Descontracturante", duration: "60 minutos", price: "$13.000", icon: <FaHeart />, imageUrl: "/mds/images/services/massage-2768832_1280.jpg" },
+  { id: 3, name: "Masaje con Piedras Calientes", duration: "70 minutos", price: "$15.000", icon: <FaHeart />, imageUrl: "/mds/images/services/m_116_1677502402.jpg" },
+  { id: 4, name: "Masaje Circulatorio", duration: "45 minutos", price: "$11.000", icon: <FaHeart />, imageUrl: "/mds/images/services/people-3184615_1280.jpg" },
 
   // Servicios Individuales - Belleza
-  { id: 5, name: "Lifting de Pestaña", duration: "50 minutos", price: "$8.500", icon: <FaHeart /> },
-  { id: 6, name: "Depilación Facial", duration: "25 minutos", price: "$4.000", icon: <FaHeart /> },
-  { id: 7, name: "Belleza de Manos y Pies", duration: "90 minutos", price: "$10.000", icon: <FaHeart /> },
+  { id: 5, name: "Lifting de Pestaña", duration: "50 minutos", price: "$8.500", icon: <FaHeart />, imageUrl: "/mds/images/services/woman-567021_1280.jpg" },
+  { id: 6, name: "Depilación Facial", duration: "25 minutos", price: "$4.000", icon: <FaHeart />, imageUrl: "/mds/images/services/beautiful-young-woman-facial-treatment-beauty-salon-applying-cream_219728-3075.avif" },
+  { id: 7, name: "Belleza de Manos y Pies", duration: "90 minutos", price: "$10.000", icon: <FaHeart />, imageUrl: "/mds/images/services/physical-therapy-2133286_1280.jpg" },
 
   // Servicios Individuales - Tratamientos Faciales
-  { id: 8, name: "Punta de Diamante Microexfoliación", duration: "60 minutos", price: "$9.500", icon: <FaHeart /> },
-  { id: 9, name: "Limpieza Profunda + Hidratación", duration: "70 minutos", price: "$11.000", icon: <FaHeart /> },
-  { id: 10, name: "Crio Frecuencia Facial", duration: "40 minutos", price: "$9.000", icon: <FaHeart /> },
+  { id: 8, name: "Punta de Diamante Microexfoliación", duration: "60 minutos", price: "$9.500", icon: <FaHeart />, imageUrl: "/mds/images/services/831TreatmentShoot_Derma_0204.jpg" },
+  { id: 9, name: "Limpieza Profunda + Hidratación", duration: "70 minutos", price: "$11.000", icon: <FaHeart />, imageUrl: "/mds/images/services/face-2722810_1280.jpg" },
+  { id: 10, name: "Crio Frecuencia Facial", duration: "40 minutos", price: "$9.000", icon: <FaHeart />, imageUrl: "/mds/images/services/conoce-todo-sobre-la-radio-frecuencia-facial.jpg" },
 
   // Servicios Individuales - Tratamientos Corporales
-  { id: 11, name: "VelaSlim", duration: "45 minutos", price: "$10.500", icon: <FaHeart /> },
-  { id: 12, name: "DermoHealth", duration: "40 minutos", price: "$9.000", icon: <FaHeart /> },
-  // Descomentados y actualizados con los datos proporcionados
+  { id: 11, name: "VelaSlim", duration: "45 minutos", price: "$10.500", icon: <FaHeart />, imageUrl: "/mds/images/services/facial-8224799_1280.jpg" },
+  { id: 12, name: "DermoHealth", duration: "40 minutos", price: "$9.000", icon: <FaHeart />, imageUrl: "/mds/images/services/ai-generated-8270432_1280.jpg" },
+  // Estos dos servicios no tenían una imagen clara asociada en tu lista, así que mantengo placeholders o ajusta si tienes imágenes específicas.
+   { id: 13, name: "Criofrecuencia Corporal", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart />, imageUrl: "https://placehold.co/180x120/fdebf2/1a2a4d?text=Criofrecuencia+Corporal" }, // <-- Actualiza si tienes datos y URL real
+   { id: 14, name: "Ultracavitación", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart />, imageUrl: "https://placehold.co/180x120/fdebf2/1a2a4d?text=Ultracavitación" }, // <-- Actualiza si tienes datos y URL real
+
 
   // Servicios Grupales (Mantengo como estaban en tu código, comentados)
-  // { id: 15, name: "Hidromasajes", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
-  // { id: 16, name: "Yoga", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
+  // { id: 15, name: "Hidromasajes", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart />, imageUrl: "/mds/images/services/URL_REAL_HIDROMASAJES" },
+  // { id: 16, name: "Yoga", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart />, imageUrl: "/mds/images/services/URL_REAL_YOGA" },
 
 ];
 
@@ -301,7 +303,25 @@ const BookingPage: React.FC = () => {
               onClick={() => handleSelectService(service.id)} // Llama a handleSelectService
             >
               {/* Contenido de la tarjeta (ícono, nombre, info) */}
-              <div className={styles.serviceIcon}>{service.icon}</div> {/* Icono del servicio (azul oscuro) */}
+              {/* Mostramos la imagen si existe */}
+              {service.imageUrl && (
+                  <img
+                      src={service.imageUrl}
+                      alt={service.name} // Alt text para accesibilidad
+                      className={styles.serviceImage} // Clase CSS para estilizar la imagen
+                      // Opcional: onError para manejar imágenes no encontradas
+                      onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.onerror = null; // Previene bucles infinitos
+                          target.src = 'https://placehold.co/180x120/cccccc/333333?text=Imagen+no+disponible'; // Imagen de fallback
+                      }}
+                  />
+              )}
+              {/* Si no hay imagen, mostramos el icono (si existe) */}
+              {!service.imageUrl && service.icon && (
+                  <div className={styles.serviceIcon}>{service.icon}</div>
+              )}
+
               <h3 className={styles.serviceName}>{service.name}</h3> {/* Nombre (azul oscuro) */}
               <div className={styles.serviceInfo}> {/* Duración y Precio */}
                 <p className={styles.serviceDetail}>
@@ -336,22 +356,8 @@ const BookingPage: React.FC = () => {
                  ) : (
                      <FaCalendarAlt className={styles.stepIcon} /> // Actual (azul oscuro)
                  )}
-                 <h2 className={styles.stepTitle}>Paso 2: Seleccione Profesional,   Fecha y Hora</h2>
+                 <h2 className={styles.stepTitle}>Paso 2: Seleccione Fecha y Hora</h2>
               </div> {/* Fin stepIndicator */}
-
-              {/* Selección de Profesional */}
-                <div className={styles.professionalSelectionContainer}>
-                <label htmlFor="professionalSelect" className={styles.dateLabel}>
-                    Seleccione profesional a elección
-                </label>
-                <select id="professionalSelect" className={styles.dateInput}>
-                    <option value="">-- Seleccione un profesional --</option>
-                    <option value="1">Dra. López - 42 años</option>
-                    <option value="2">Dr. García - 37 años</option>
-                    <option value="3">Lic. Pérez - 29 años</option>
-                </select>
-                
-                </div>
 
               {/* Sección de Selección de Fecha */}
               <div className={styles.dateSelectionContainer}>
@@ -401,9 +407,9 @@ const BookingPage: React.FC = () => {
               </div> {/* Fin timeSelectionContainer */}
 
               {/* Botón Volver para el Paso 2 */}
-               {/* <div className={styles.bookingActions}>
+               <div className={styles.bookingActions}>
                    <button className={styles.backButton} onClick={handleGoBack}>Volver</button>
-               </div> */}
+               </div>
 
 
           </div>
@@ -483,7 +489,8 @@ const BookingPage: React.FC = () => {
                       </p>
 
                   </div> 
-               )}
+              )} 
+
 
               {/* --- Sección de Formulario de Datos Personales (Visible si NO logeado O si eligió continuar sin login) --- */}
               {/* Muestra el formulario SOLO si el cliente NO está logeado Y NO hay mensaje de autenticación (es decir, eligió continuar sin login) */}
@@ -548,8 +555,8 @@ const BookingPage: React.FC = () => {
                           ></textarea>
                        </div>
 
-                  </div>
-              )} {/* Fin renderizado condicional del formulario de datos */}
+                  </div> 
+              )} 
 
               {/* --- Mensaje de Usuario Logeado (Visible si SÍ está logeado) --- */}
               {isClientLoggedIn && (
