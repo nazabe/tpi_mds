@@ -20,32 +20,30 @@ import {
 // Definimos una ruta principal ('/') que usa el Layout
 const router = createBrowserRouter(
   [
+    {
+      path: "/",
+      element: <Layout />, // Componente principal con <Outlet />
+      children: [
+        {
+          index: true, // Equivale a path: ""
+          element: <App />, // Landing page
+        },
+        {
+          path: "reservar",
+          element: <BookingPage />, // Página de reservas
+        },
+        {
+          path: "login",
+          element: <LoginPage />, // Página de login
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <Layout />, // Tu componente Layout
-    children: [
-      {
-        index: true,
-        element: <App />, // Tu componente App (landing)
-      },
-      {
-        path: "reservar",
-        element: <BookingPage />, // Tu componente BookingPage
-      },
-      {
-        path: "login", // La ruta para /login
-        element: <LoginPage />, // <-- Asegúrate de que sea LoginPage aquí
-      },
-      // ... otras rutas
-    ],
-    
-      
-  },
-  // ... rutas fuera del layout si las tienes
-],
-{
-        basename: "/mds",
-      });
+    basename: "/mds",
+  }
+);
+
 // --- Fin Configuración del Router ---
 
 
