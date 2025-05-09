@@ -155,6 +155,13 @@ body {
   /* Mantén otros estilos existentes para .scrollArrowsWrapper si los tienes */
 }
 
+.serviceImage {
+  width: 100%;           /* Que se adapte al ancho del contenedor */
+  height: 200px;         /* Altura fija para todas */
+  object-fit: cover;     /* Recorta la imagen para llenar el espacio sin deformarla */
+  border-radius: 8px;    /* Opcional: esquinas redondeadas */
+}
+
 
 /* Opcional: Capa semitransparente sobre la imagen si el texto no se lee bien */
 /* .hero::before {

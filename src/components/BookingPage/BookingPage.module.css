@@ -206,6 +206,8 @@
     border-radius: 4px;
     font-size: 1rem;
     box-sizing: border-box;
+    background-color: white;
+    color: #555;
     text-align: left; /* O center si prefieres */
     cursor: pointer;
     /* Puedes añadir estilos de foco para usar colores de marca si lo necesitas */
@@ -215,6 +217,26 @@
          outline: none;
          box-shadow: 0 0 0 0.2rem rgba(233, 30, 99, 0.25); /* Sombra de foco rosa semi-transparente */
      }
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 250px; /* O el alto fijo/ajustable que uses */
+  padding: 1rem;
+  background-color: #fff0f4; /* como el fondo rosado claro que tenés */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.infoBottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: #d1005e;
 }
 
 /* NOTA: Los estilos del calendario emergente de react-datepicker

@@ -5,6 +5,7 @@ import {
   FaCalendarAlt // Importa el icono de calendario
 } from 'react-icons/fa'; // Iconos de Font Awesome
 
+import 'react-datepicker/dist/react-datepicker.css';
 
 // Importa el componente DatePicker y sus estilos CSS por defecto
 import DatePicker from 'react-datepicker';
@@ -26,6 +27,7 @@ interface Service {
 
 // Datos de ejemplo de los servicios (usaremos los que me diste)
 // Idealmente, estos datos vendrían de una API o un archivo de configuración central
+
 const servicesData: Service[] = [
   // Servicios Individuales - Masajes
   { id: 1, name: "Masaje Anti-stress", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> }, // <-- Sustituye datos y elige iconos
@@ -46,13 +48,25 @@ const servicesData: Service[] = [
   // Servicios Individuales - Tratamientos Corporales
   { id: 11, name: "VelaSlim", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
   { id: 12, name: "DermoHealth", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
-  { id: 13, name: "Criofrecuencia Corporal", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
-  { id: 14, name: "Ultracavitación", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
+  // { id: 13, name: "Criofrecuencia Corporal", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
+  // { id: 14, name: "Ultracavitación", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
 
-  // Servicios Grupales
-  { id: 15, name: "Hidromasajes", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
-  { id: 16, name: "Yoga", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
+  // // Servicios Grupales
+  // { id: 15, name: "Hidromasajes", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
+  // { id: 16, name: "Yoga", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
+  
 ];
+
+<div className="serviceCard">
+  <div>
+    <div className="icon"><FaHeart /></div>
+    <h3>Masaje Anti-stress</h3>
+  </div>
+  <div className="infoBottom">
+    <div className="duration"><FaClock /> XX minutos</div>
+    <div className="price"><FaDollarSign /> $XXXXX,XX</div>
+  </div>
+</div>
 // --- Fin Interfaz y Datos de Servicios ---
 
 
@@ -355,7 +369,7 @@ const BookingPage: React.FC = () => {
                           className={styles.formInput}
                           value={formData.phone} // Vincula al estado
                           onChange={handleInputChange} // Maneja cambios
-                          placeholder="Ingresa tu número (sin código de país)" // Ajusta placeholder según formato esperado
+                          placeholder="Ingresa tu número" // Ajusta placeholder según formato esperado
                            // Podrías hacerlo requerido o validar junto con el email
                       />
                       {/* Opcional: Un pequeño texto de ayuda */}

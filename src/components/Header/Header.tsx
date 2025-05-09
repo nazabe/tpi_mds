@@ -11,7 +11,7 @@ const Header: React.FC = () => {
       <div className={styles.logoContainer}>
         {/* Usamos un ícono y texto para el título del sitio, basado en la imagen y tu branding */}
          <FaHeart className={styles.logoIcon} /> {/* Puedes usar FaHeart o buscar otro ícono adecuado */}
-        <span className={styles.siteTitle}>Spa 'Sentirse Bien'</span>
+        <span className={styles.siteTitle}>Spa Sentirse Bien</span>
       </div>
 
       {/* Contenedor de los enlaces de navegación a la derecha */}

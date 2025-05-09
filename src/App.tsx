@@ -194,81 +194,117 @@ function App() {
 
               {/* --- Masajes --- */}
               <div className={styles.serviceCard}>
-                <div className={styles.serviceImagePlaceholder}> {/* Espacio para la imagen */}"Imagen aquí"</div>
-                {/* Contenedor para el título con fondo de color - si lo necesitas según diseño */}
-                {/* <div className={styles.serviceTitleContainer}> */}
-                  <h3 className={styles.serviceTitle}>Masaje Anti-stress</h3>
-                {/* </div> */}
+                <img
+                  src="src/images/services/woman-567021_1280.jpg"
+                  alt="Imagen de Masaje Anti-stress"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>Masaje Anti-stress</h3>
               </div>
+
               <div className={styles.serviceCard}>
-                 <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                  <h3 className={styles.serviceTitle}>Masaje Descontracturante</h3>
-               </div>
-               <div className={styles.serviceCard}>
-                  <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                   <h3 className={styles.serviceTitle}>Masaje con Piedras Calientes</h3>
-                </div>
-                <div className={styles.serviceCard}>
-                   <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                    <h3 className={styles.serviceTitle}>Masaje Circulatorio</h3>
-                 </div>
+                <img
+                  src="src/images/services/massage-2768832_1280.jpg"
+                  alt="Imagen de Masaje Descontracturante"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>Masaje Descontracturante</h3>
+              </div>
+
+              <div className={styles.serviceCard}>
+                <img
+                  src="src/images/services/people-3184615_1280.jpg"
+                  alt="Imagen de Masaje con Piedras Calientes"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>Masaje con Piedras Calientes</h3>
+              </div>
+
+              <div className={styles.serviceCard}>
+                <img
+                  src="src/images/services/massage-3795693_1280.jpg"
+                  alt="Imagen de Masaje Circulatorio"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>Masaje Circulatorio</h3>
+              </div>
 
               {/* --- Belleza --- */}
-               <div className={styles.serviceCard}>
-                  <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                   <h3 className={styles.serviceTitle}>Lifting de Pestaña</h3>
-                </div>
-                <div className={styles.serviceCard}>
-                   <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                    <h3 className={styles.serviceTitle}>Depilación Facial</h3>
-                 </div>
-                 <div className={styles.serviceCard}>
-                    <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                     <h3 className={styles.serviceTitle}>Belleza de Manos y Pies</h3>
-                  </div>
+              <div className={styles.serviceCard}>
+                <img
+                  src="src/images/services/face-2722810_1280.jpg"
+                  alt="Imagen de Lifting de Pestaña"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>Lifting de Pestaña</h3>
+              </div>
+
+              <div className={styles.serviceCard}>
+                <img
+                  src="src/images/services/ai-generated-8270432_1280.jpg"
+                  alt="Imagen de Depilación Facial"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>Depilación Facial</h3>
+              </div>
+
+              <div className={styles.serviceCard}>
+                <img
+                  src="src/images/services/physical-therapy-2133286_1280.jpg"
+                  alt="Imagen de Belleza de Manos y Pies"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>Belleza de Manos y Pies</h3>
+              </div>
 
               {/* --- Tratamientos Faciales --- */}
-               <div className={styles.serviceCard}>
-                   <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                    <h3 className={styles.serviceTitle}>Punta de Diamante Microexfoliación</h3> {/* Nombre completo */}
-                 </div>
-                 <div className={styles.serviceCard}>
-                    <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                    <h3 className={styles.serviceTitle}>Limpieza Profunda + Hidratación</h3>
-                  </div>
-                  <div className={styles.serviceCard}>
-                     <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                      <h3 className={styles.serviceTitle}>Crio Frecuencia Facial</h3>
-                   </div>
+              <div className={styles.serviceCard}>
+                <img
+                  src="src/images/services/831TreatmentShoot_Derma_0204.jpg"
+                  alt="Imagen de Punta de Diamante Microexfoliación"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>Punta de Diamante Microexfoliación</h3>
+              </div>
+
+              <div className={styles.serviceCard}>
+                <img
+                  src="src/images/services/facial-8224799_1280.jpg"
+                  alt="Imagen de Limpieza Profunda + Hidratación"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>Limpieza Profunda + Hidratación</h3>
+              </div>
+
+              <div className={styles.serviceCard}>
+                <img
+                  src="src/images/services/conoce-todo-sobre-la-radio-frecuencia-facial.jpg"
+                  alt="Imagen de Crio Frecuencia Facial"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>Crio Frecuencia Facial</h3>
+              </div>
 
               {/* --- Tratamientos Corporales --- */}
-                <div className={styles.serviceCard}>
-                    <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                     <h3 className={styles.serviceTitle}>VelaSlim</h3>
-                  </div>
-                  <div className={styles.serviceCard}>
-                      <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                       <h3 className={styles.serviceTitle}>DermoHealth</h3>
-                    </div>
-                   <div className={styles.serviceCard}>
-                       <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                       <h3 className={styles.serviceTitle}>Criofrecuencia Corporal</h3> {/* Especificar Corporal */}
-                     </div>
-                     <div className={styles.serviceCard}>
-                         <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                         <h3 className={styles.serviceTitle}>Ultracavitación</h3>
-                       </div>
+              <div className={styles.serviceCard}>
+                <img
+                  src="src/images/services/m_116_1677502402.jpg"
+                  alt="Imagen de VelaSlim"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>VelaSlim</h3>
+              </div>
 
-              {/* --- Servicios Grupales --- */}
-               <div className={styles.serviceCard}>
-                  <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                   <h3 className={styles.serviceTitle}>Hidromasajes</h3>
-               </div>
+              <div className={styles.serviceCard}>
+                <img
+                  src="src/images/services/beautiful-young-woman-facial-treatment-beauty-salon-applying-cream_219728-3075.avif"
+                  alt="Imagen de DermoHealth"
+                  className={styles.serviceImage}
+                />
+                <h3 className={styles.serviceTitle}>DermoHealth</h3>
+              </div>
 
-                <div className={styles.serviceCard}>
-                   <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
-                   <h3 className={styles.serviceTitle}>Yoga</h3>
-                 </div>
+                   
 
 
             </div> {/* Fin servicesScrollContainer */}
