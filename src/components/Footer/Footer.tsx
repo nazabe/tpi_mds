@@ -83,6 +83,10 @@ const Footer: React.FC = () => {
           {/* Puedes poner tu nombre o el de la empresa */}
           © 2025 GestorSpa. Todos los derechos reservados. {/* Texto de copyright */}
         </div> {/* Fin copyright */}
+        <div className={styles.copyright}>
+          {/* Puedes poner tu nombre o el de la empresa */}
+          Desarrollado por VirtualCoders Team. {/* Texto de copyright */}
+        </div> {/* Fin copyright */}
 
       </div> {/* Fin footerContent */}
     </footer> // Fin footer
