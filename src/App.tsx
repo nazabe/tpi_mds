@@ -1,15 +1,15 @@
-// Importaciones necesarias de React y react-icons
-import React, { useRef } from 'react'; // Importa useRef
-import styles from './App.module.css'; // Importa estilos CSS Modules
+import { Link } from 'react-router-dom'; // Importa Link para la navegación
+// Importaciones necesarias de React y react-icons para el CONTENIDO DE LA LANDING
+import React, { useRef } from 'react'; // Importa useRef para la sección de Servicios
+import styles from './App.module.css'; // Importa estilos CSS Modules específicos de App
+
+// Importa los iconos utilizados en las secciones de la landing page (Top Bar, Hero, About Us, Services)
 import {
   FaMapMarkerAlt, FaEnvelope, FaFacebookF, FaInstagram, FaGoogle,
-  FaSearch, FaBars, FaChevronDown, FaArrowRight,
-  FaPhone, FaChevronLeft, FaChevronRight // Importa los iconos de flecha y teléfono
-  // Si usas FaWhatsapp, asegúrate de importarlo aquí también
-  // FaWhatsapp
+  FaArrowRight, FaPhone, FaChevronLeft, FaChevronRight
+  // FaWhatsapp si lo usas en la Top Bar o About Us
 } from 'react-icons/fa';
-// Si necesitas otros iconos (ej: de Material Design), instala react-icons/md y descomenta:
-// import { MdLocationOn, MdPhone } from 'react-icons/md';
+// Si usas otros iconos en las secciones de la landing, impórtalos aquí
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   // Ref para acceder al elemento DOM del contenedor de scroll de servicios
   const servicesScrollRef = useRef<HTMLDivElement>(null); // Especificamos que la referencia es para un div
 
-  // Función para hacer scroll a la izquierda
+  // Función para hacer scroll a la izquierda en la sección de Servicios
   const scrollLeft = () => {
     if (servicesScrollRef.current) {
       servicesScrollRef.current.scrollBy({
@@ -27,7 +27,7 @@ function App() {
     }
   };
 
-  // Función para hacer scroll a la derecha
+  // Función para hacer scroll a la derecha en la sección de Servicios
   const scrollRight = () => {
     if (servicesScrollRef.current) {
       servicesScrollRef.current.scrollBy({
@@ -39,43 +39,19 @@ function App() {
   // ===================== Fin Lógica de Scroll =====================
 
 
-  // ===================== Renderizado del Componente App =====================
+  // ===================== Renderizado del Componente App (Contenido de Landing Page) =====================
+  // Este componente SÓLO renderiza el contenido único de la página principal (la landing).
+  // El Header y el Footer se renderizan en el componente Layout que lo envuelve.
   return (
-    <div className={styles.App}>
-      {/* ===================== Top Bar ===================== */}
-      <div className={styles.topBar}>
-        <div className={styles.topBarLeft}>
-          <div className={styles.topBarItem}>
-            <FaMapMarkerAlt />
-            <span>Argentina</span>
-          </div>
-          <div className={styles.topBarItem}>
-            <FaEnvelope />
-            <span>hola@turnosbelleza.com.ar</span>
-          </div>
-        </div>
-        <div className={styles.topBarRight}>
-          <span>SEGUINOS:</span>
-          <div className={styles.topBarSocialIcons}>
-                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
-              <FaFacebookF />
-            </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
-              <FaInstagram />
-            </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Santa+Fe+718,+Resistencia,+Chaco" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
-              <FaGoogle />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      
-
-
+    // Un div principal para el contenido de App, usando estilos de App.module.css
+    // No necesitamos el div styles.App que envolvía todo si el Layout ya provee un contenedor principal.
+    // Sin embargo, si tus estilos .App en App.module.css aplican estilos de layout al contenido, mantenlo.
+    // Por simplicidad, mantengamos el div styles.App aquí envolviendo el contenido específico de la landing.
+    <div className={styles.App}> {/* Este div contiene las secciones de la landing */}
+    
       {/* ===================== Hero Section ===================== */}
       {/* Sección principal con la imagen de fondo y el mensaje destacado */}
-      <main className={styles.hero}>
+      <main className={styles.hero}> {/* Usamos <main> para semántica */}
         <div className={styles.heroContent}>
           <p className={styles.heroSubheading}>Ahora es el Turno de la Belleza</p>
           <h1 className={styles.heroHeading}>
@@ -84,16 +60,16 @@ function App() {
           <p className={styles.heroDescription}>
             Descubre la belleza con nosotros. ¡Reserva tu turno hoy mismo!
           </p>
-          <button className={styles.heroCtaButton}>
+          <Link to="/reservar" className={styles.heroCtaButton}> {/* Enlace al la página de reserva */}
             Reservá tu turno <FaArrowRight />
-          </button>
+          </Link>
         </div>
-      </main>
+      </main> {/* Fin Hero */}
 
       {/* ===================== Sección: Sobre Nosotros ===================== */}
       {/* Contiene el texto, contacto, ubicación y mapa en columnas */}
-      <section id="quienes-somos" className={styles.aboutUsSection}> {/* Añadimos ID para navegación */}
-        <div className={styles.sectionContent}> {/* Contenedor general centrado */}
+      <section id="quienes-somos" className={styles.aboutUsSection}> {/* Usamos <section> para semántica, añadimos ID */}
+        <div className={styles.sectionContent}> {/* Contenedor general centrado con padding */}
 
           <h2 className={styles.sectionHeading}>Sobre Nosotros</h2>
 
@@ -116,10 +92,6 @@ function App() {
               </p>
 
               {/* Lista de preguntas con viñetas */}
-              {/* Puedes quitar este párrafo si la lista va justo después del texto */}
-               {/* <p className={styles.sectionText} style={{ marginBottom: '10px' }}>
-                ¿Querés...?
-              </p> */}
               <ul className={styles.questionsList}>
                 <li>¿Desconectar del estrés cotidiano?</li>
                 <li>¿Buscar un momento solo para vos?</li>
@@ -165,6 +137,7 @@ function App() {
               {/* Recuadro del Mapa - Usando iFrame */}
               <div className={styles.mapContainer}>
                 {/* Pega aquí el código <iframe> que copiaste de Google Maps */}
+                {/* Asegúrate de reemplazar la URL con la correcta de tu mapa */}
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3275.8613488754554!2d-58.36822492425079!3d-34.809429972881176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a32ca981f47a07%3A0x164bdc6890dda77c!2sAvenida%20Rep%C3%BAblica%20Argentina%20Y%20Humberto%20Primo!5e0!3m2!1ses-419!2sar!4v1745555820613!5m2!1ses-419!2sar" // <-- REEMPLAZA esta URL con la de tu iframe
                   width="100%"
@@ -177,7 +150,7 @@ function App() {
               </div> {/* Fin MapContainer */}
 
               {/* Botón "Abrir en Maps" */}
-              {/* Usamos un enlace <a> y le daremos estilo de botón en CSS */}
+              {/* Usamos un enlace <a> con estilo de botón */}
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Santa+Fe+718,+Resistencia,+Chaco" // Enlace para abrir en Google Maps (Verifica URL)
                 target="_blank" // Abre en una nueva pestaña
@@ -197,11 +170,11 @@ function App() {
           </p>
 
         </div> {/* Fin sectionContent */}
-      </section>
+      </section> {/* Fin About Us */}
 
       {/* ===================== Sección: Nuestros Servicios ===================== */}
       {/* Contiene el scroll horizontal de tarjetas de servicios */}
-      <section id="profesionales" className={styles.servicesSection}> {/* Añadimos ID */}
+      <section id="profesionales" className={styles.servicesSection}> {/* Usamos <section>, añadimos ID */}
          <div className={styles.sectionContent}> {/* Contenedor centrado */}
 
           <h2 className={styles.sectionHeading}>Nuestros Servicios</h2>
@@ -210,152 +183,125 @@ function App() {
           {/* Este div wrapper tiene position: relative para posicionar las flechas absolutas */}
           <div className={styles.scrollWrapper}>
 
-            {/* Flecha Izquierda (Visible en desktop/tablet, oculta en mobile con CSS) */}
-            
-
             {/* Contenedor que habilita el scroll horizontal de las tarjetas */}
-            {/* Le asignamos la referencia para poder controlarlo con los botones */}
+            {/* Le asignamos la referencia useRef para poder controlarlo con los botones */}
             <div className={styles.servicesScrollContainer} ref={servicesScrollRef}>
 
               {/* =============================================== */}
               {/* === Tarjetas Individuales para CADA Servicio === */}
+              {/* Estos son placeholders. Luego se reemplazarán por componentes ServiceCard o se generarán dinámicamente. */}
               {/* =============================================== */}
 
               {/* --- Masajes --- */}
               <div className={styles.serviceCard}>
-                <div className={styles.serviceImagePlaceholder}> {/* Espacio para la imagen */}</div>
-                <div className={styles.serviceTitleContainer}> {/* Contenedor para el título con fondo de color */}
+                <div className={styles.serviceImagePlaceholder}> {/* Espacio para la imagen */}"Imagen aquí"</div>
+                {/* Contenedor para el título con fondo de color - si lo necesitas según diseño */}
+                {/* <div className={styles.serviceTitleContainer}> */}
                   <h3 className={styles.serviceTitle}>Masaje Anti-stress</h3>
-                </div>
+                {/* </div> */}
               </div>
               <div className={styles.serviceCard}>
-                 <div className={styles.serviceImagePlaceholder}></div>
-                 <div className={styles.serviceTitleContainer}>
+                 <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                   <h3 className={styles.serviceTitle}>Masaje Descontracturante</h3>
-                 </div>
                </div>
                <div className={styles.serviceCard}>
-                  <div className={styles.serviceImagePlaceholder}></div>
-                  <div className={styles.serviceTitleContainer}>
+                  <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                    <h3 className={styles.serviceTitle}>Masaje con Piedras Calientes</h3>
-                  </div>
                 </div>
                 <div className={styles.serviceCard}>
-                   <div className={styles.serviceImagePlaceholder}></div>
-                   <div className={styles.serviceTitleContainer}>
+                   <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                     <h3 className={styles.serviceTitle}>Masaje Circulatorio</h3>
-                   </div>
                  </div>
 
               {/* --- Belleza --- */}
                <div className={styles.serviceCard}>
-                  <div className={styles.serviceImagePlaceholder}></div>
-                  <div className={styles.serviceTitleContainer}>
+                  <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                    <h3 className={styles.serviceTitle}>Lifting de Pestaña</h3>
-                  </div>
                 </div>
                 <div className={styles.serviceCard}>
-                   <div className={styles.serviceImagePlaceholder}></div>
-                   <div className={styles.serviceTitleContainer}>
+                   <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                     <h3 className={styles.serviceTitle}>Depilación Facial</h3>
-                   </div>
                  </div>
                  <div className={styles.serviceCard}>
-                    <div className={styles.serviceImagePlaceholder}></div>
-                    <div className={styles.serviceTitleContainer}>
+                    <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                      <h3 className={styles.serviceTitle}>Belleza de Manos y Pies</h3>
-                    </div>
                   </div>
 
               {/* --- Tratamientos Faciales --- */}
                <div className={styles.serviceCard}>
-                   <div className={styles.serviceImagePlaceholder}></div>
-                   <div className={styles.serviceTitleContainer}>
+                   <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                     <h3 className={styles.serviceTitle}>Punta de Diamante Microexfoliación</h3> {/* Nombre completo */}
-                   </div>
                  </div>
                  <div className={styles.serviceCard}>
-                    <div className={styles.serviceImagePlaceholder}></div>
-                    <div className={styles.serviceTitleContainer}>
-                     <h3 className={styles.serviceTitle}>Limpieza Profunda + Hidratación</h3>
-                    </div>
+                    <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
+                    <h3 className={styles.serviceTitle}>Limpieza Profunda + Hidratación</h3>
                   </div>
                   <div className={styles.serviceCard}>
-                     <div className={styles.serviceImagePlaceholder}></div>
-                     <div className={styles.serviceTitleContainer}>
+                     <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                       <h3 className={styles.serviceTitle}>Crio Frecuencia Facial</h3>
-                     </div>
                    </div>
 
               {/* --- Tratamientos Corporales --- */}
                 <div className={styles.serviceCard}>
-                    <div className={styles.serviceImagePlaceholder}></div>
-                    <div className={styles.serviceTitleContainer}>
+                    <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                      <h3 className={styles.serviceTitle}>VelaSlim</h3>
-                    </div>
                   </div>
                   <div className={styles.serviceCard}>
-                      <div className={styles.serviceImagePlaceholder}></div>
-                      <div className={styles.serviceTitleContainer}>
+                      <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                        <h3 className={styles.serviceTitle}>DermoHealth</h3>
-                      </div>
                     </div>
                    <div className={styles.serviceCard}>
-                       <div className={styles.serviceImagePlaceholder}></div>
-                       <div className={styles.serviceTitleContainer}>
-                        <h3 className={styles.serviceTitle}>Criofrecuencia Corporal</h3> {/* Especificar Corporal */}
-                       </div>
+                       <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
+                       <h3 className={styles.serviceTitle}>Criofrecuencia Corporal</h3> {/* Especificar Corporal */}
                      </div>
                      <div className={styles.serviceCard}>
-                         <div className={styles.serviceImagePlaceholder}></div>
-                         <div className={styles.serviceTitleContainer}>
-                          <h3 className={styles.serviceTitle}>Ultracavitación</h3>
-                         </div>
+                         <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
+                         <h3 className={styles.serviceTitle}>Ultracavitación</h3>
                        </div>
 
               {/* --- Servicios Grupales --- */}
                <div className={styles.serviceCard}>
-                  <div className={styles.serviceImagePlaceholder}></div>
-                  <div className={styles.serviceTitleContainer}>
+                  <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
                    <h3 className={styles.serviceTitle}>Hidromasajes</h3>
-                 </div>
                </div>
 
                 <div className={styles.serviceCard}>
-                   <div className={styles.serviceImagePlaceholder}></div>
-                   <div className={styles.serviceTitleContainer}>
-                    <h3 className={styles.serviceTitle}>Yoga</h3>
-                   </div>
+                   <div className={styles.serviceImagePlaceholder}>"Imagen aquí"</div>
+                   <h3 className={styles.serviceTitle}>Yoga</h3>
                  </div>
 
 
             </div> {/* Fin servicesScrollContainer */}
 
-            {/* Flecha Derecha (Visible en desktop/tablet, oculta en mobile con CSS) */}
-            <div className={styles.scrollArrowContainer}>
-            <button className={`${styles.scrollArrow} ${styles.scrollArrowLeft}`} onClick={scrollLeft} aria-label="Scroll Left">
-              <FaChevronLeft />
-            </button>
+            {/* === NUEVO: Contenedor para centrar los botones de scroll === */}
+            {/* Este div contendrá las dos flechas y lo centraremos */}
+            <div className={styles.scrollArrowsWrapper}>
+                {/* Flecha Izquierda para Scroll */}
+                <button className={`${styles.scrollArrow} ${styles.scrollArrowLeft}`} onClick={scrollLeft} aria-label="Scroll Left">
+                  <FaChevronLeft />
+                </button>
+                {/* Flecha Derecha para Scroll */}
+                <button className={`${styles.scrollArrow} ${styles.scrollArrowRight}`} onClick={scrollRight} aria-label="Scroll Right">
+                  <FaChevronRight />
+                </button>
+            </div> {/* Fin scrollArrowsWrapper */}
 
-            <button className={`${styles.scrollArrow} ${styles.scrollArrowRight}`} onClick={scrollRight} aria-label="Scroll Right">
-              <FaChevronRight />
-            </button>
-          </div>
-
-
-          </div> {/* Fin scrollWrapper */}
+          </div> {/* Fin scrollWrapper (contenedor de scroll + flechas) */}
 
 
          </div> {/* Fin sectionContent */}
-      </section>
+      </section> {/* Fin Sección Servicios */}
 
-      {/* ===================== Footer (Opcional) ===================== */}
-      {/* Puedes añadir un pie de página aquí si es necesario */}
-      {/* <footer className={styles.footer}>
-        <p>© 2023 Turno Belleza. Todos los derechos reservados.</p>
-      </footer> */}
-    </div> // Fin styles.App
+      {/* NOTA: El Footer GLOBAL YA NO ESTÁ AQUÍ. Se renderiza en el componente Layout. */}
+      {/* Si tuvieras un footer que SÓLO aparece en la landing, podrías ponerlo aquí */}
+       {/* <footer className={styles.landingFooter}>
+         <div className={styles.sectionContent}>
+           <p>© 2023 Tu Marca. Todos los derechos reservados.</p>
+         </div>
+       </footer> */}
+
+    </div> // Fin styles.App div
   );
 }
 
-export default App;
+export default App; // Exporta el componente App

@@ -144,11 +144,15 @@ body {
   background-color: #fdf8f5; /* Fondo de respaldo/fallback */
 }
 
-.scrollArrowContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem; /* espacio entre botones, ajustá a gusto */
+.scrollArrowsWrapper {
+  display: flex; /* Usa flexbox para alinear las dos flechas en una fila */
+  justify-content: center; /* Centra los botones horizontalmente dentro de este contenedor */
+  align-items: center; /* Centra verticalmente (si los botones tuvieran diferente altura) */
+  gap: 1rem; /* Espacio entre los botones de flecha (ajusta a gusto) */
+  margin-top: 10px; /* Espacio arriba de los botones (opcional) */
+  /* Si quieres que este wrapper ocupe todo el ancho para asegurar el centrado: */
+  width: 100%;
+  /* Mantén otros estilos existentes para .scrollArrowsWrapper si los tienes */
 }
 
 

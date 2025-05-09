@@ -1,0 +1,649 @@
+/* Importa los estilos por defecto de react-datepicker */
+/* Esto es necesario para que el calendario se vea bien */
+/* NOTA: Los estilos del calendario emergente son complejos de personalizar completamente */
+@import 'react-datepicker/dist/react-datepicker.css';
+
+/* ===================== Estilos Generales de la Página de Reserva ===================== */
+
+/* Contenedor principal de la página de reserva */
+.bookingPageContainer {
+    max-width: 800px; /* Ancho máximo para centrar el contenido */
+    margin: 40px auto; /* Centra horizontalmente con margen arriba/abajo */
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    /* Usamos la misma pila de fuentes que en tu App.css para consistencia */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333; /* Color de texto oscuro por defecto */
+    line-height: 1.6; /* Espaciado de línea base */
+}
+
+/* Título principal "Reservar Turno" */
+.pageTitle {
+    font-size: 2rem;
+    color: #1a2a4d; /* Color oscuro principal de tu marca */
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee; /* Línea separadora suave */
+    padding-bottom: 15px;
+}
+
+/* Contenedor para cada sección de paso (Paso 1, Paso 2, etc.) */
+/* Añade espacio debajo para separar visualmente los pasos cuando se muestran secuencialmente */
+.stepContainer {
+    margin-bottom: 40px; /* Espacio en la parte inferior de cada sección de paso */
+    /* Opcional: Borde o fondo sutil para separar los pasos visualmente */
+    /* border: 1px solid #fdebf2; padding: 20px; border-radius: 8px; background-color: #fffafa; */
+}
+
+
+/* Indicador del paso (contenedor del ícono, título y nombre del servicio si aplica) */
+.stepIndicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px; /* Espacio debajo del indicador */
+    /* Color del texto del indicador, similar al texto secundario */
+    color: #555;
+    border-bottom: 1px solid #eee; /* Línea separadora */
+    padding-bottom: 10px; /* Espacio entre el texto/icono y la línea */
+    /* Permitimos que el contenido se envuelva si no cabe en una línea */
+    flex-wrap: wrap;
+}
+
+/* Estilos base para el ícono del paso (RegCircle, CalendarAlt) */
+/* Usamos el color oscuro principal de tu marca para los iconos de paso */
+.stepIcon {
+    font-size: 1.5rem;
+    color: #1a2a4d; /* Color oscuro principal de tu marca */
+    flex-shrink: 0; /* Evita que el ícono se achique */
+}
+
+/* Estilo específico para el ícono cuando el paso está completado (CheckCircle) */
+/* ¡Cambiamos a un tono rosa oscuro para indicar completado! */
+.stepIconCompleted {
+    color: #d81b60; /* Tono de rosa más oscuro para el check de completado */
+    /* Opcional: Fondo o borde para destacarlo más */
+    /* background-color: #ffe0e6; border-radius: 50%; padding: 2px; */
+}
+
+
+/* Título del paso (h2) */
+.stepTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333; /* Color de texto principal */
+    margin: 0;
+    /* flex-grow: 1; /* Puede ser útil con flex-wrap */
+}
+
+/* Estilo para mostrar el nombre del servicio seleccionado al lado del título del Paso 1 */
+.selectedServiceName {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #555; /* Color de texto secundario */
+    margin-left: 5px;
+    /* flex-grow: 1; /* Puede ser útil con flex-wrap */
+}
+
+
+/* ===================== Estilos del Paso 1: Selección de Servicio ===================== */
+
+/* Galería / Cuadrícula de Servicios */
+.servicesGallery {
+    display: grid; /* Cuadrícula de tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Columnas adaptables */
+    gap: 20px; /* Espacio entre tarjetas */
+}
+
+/* Estilos para cada tarjeta de servicio individual */
+.serviceCard {
+    background-color: #fff5f7; /* Fondo rosa muy claro, similar al de servicios en App.css */
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    border: 2px solid transparent; /* Borde transparente por defecto */
+    position: relative; /* Para el indicador de seleccionado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilo para la tarjeta seleccionada */
+/* ¡Cambiamos a un tono rosa más oscuro para indicar la selección! */
+.serviceCard.selected {
+    border-color: #e91e63; /* Borde rosa principal para indicar seleccionado */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada */
+    background-color: #ffe0e6; /* Fondo rosa pastel muy claro para la selección */
+}
+
+/* Efecto al pasar el mouse por encima (solo si NO está seleccionado) */
+.serviceCard:hover:not(.selected) {
+    transform: translateY(-3px); /* Ligero movimiento */
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
+}
+
+/* Icono decorativo del servicio dentro de la tarjeta (ej: corazón, gota) */
+/* Usamos el color oscuro principal para estos iconos decorativos */
+.serviceIcon {
+    font-size: 2rem; /* Tamaño del icono */
+    color: #1a2a4d; /* Color oscuro principal de tu marca */
+    margin-bottom: 10px;
+}
+
+/* Nombre del servicio */
+.serviceName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a2a4d; /* Color oscuro principal de tu marca */
+    margin: 0 0 10px 0;
+}
+
+/* Contenedor para la información de duración y precio */
+.serviceInfo {
+    display: flex;
+    flex-direction: column; /* Apila duración y precio */
+    gap: 5px;
+    font-size: 0.9rem;
+    color: #555; /* Color de texto secundario */
+}
+
+/* Iconos de duración y precio dentro del detalle */
+/* ¡Cambiamos a un tono rosa oscuro para estos iconos! */
+.infoIcon {
+    font-size: 1rem;
+    color: #d81b60; /* Tono de rosa más oscuro */
+}
+
+/* Indicador de "Seleccionado" (ícono de check superpuesto) */
+/* El checkmark es un tono rosa oscuro, indicando completado/seleccionado */
+.selectedIndicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.8rem;
+    color: #d81b60; /* Tono de rosa más oscuro para el check */
+    /* Fondo blanco semi-transparente para que se vea bien */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkIcon {
+    /* El ícono FaCheckCircle ya tiene su color definido por .selectedIndicator */
+}
+
+
+/* ===================== Estilos del Paso 2: Selección de Fecha y Hora ===================== */
+
+/* Sección de Selección de Fecha */
+.dateSelectionContainer {
+    margin-bottom: 20px;
+}
+
+.dateLabel {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555; /* Color del label */
+    margin-bottom: 5px;
+}
+
+/* Estilos para el input del DatePicker (el campo de texto donde se ve la fecha) */
+/* La librería react-datepicker aplica estilos por defecto, pero podemos sobreescribirlos */
+.dateInput {
+    width: 100%; /* Ocupa todo el ancho */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    text-align: left; /* O center si prefieres */
+    cursor: pointer;
+    /* Puedes añadir estilos de foco para usar colores de marca si lo necesitas */
+    /* Por ejemplo, borde rosa al hacer foco */
+     &:focus {
+         border-color: #e91e63;
+         outline: none;
+         box-shadow: 0 0 0 0.2rem rgba(233, 30, 99, 0.25); /* Sombra de foco rosa semi-transparente */
+     }
+}
+
+/* NOTA: Los estilos del calendario emergente de react-datepicker
+   requieren selectores específicos para personalizar los colores internos (días, hover, etc.).
+   Si quieres que, por ejemplo, los días seleccionados en el calendario sean rosa,
+   necesitarás añadir reglas CSS adicionales targeting esas clases.
+   Ejemplos comunes (pueden variar según la versión de la librería):
+   .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range { background-color: #e91e63 !important; color: white !important; }
+   .react-datepicker__day:hover { background-color: #ffe0e6; }
+   .react-datepicker__header { background-color: #fdebf2; }
+   .react-datepicker__navigation { color: #e91e63; }
+*/
+
+
+/* Sección de Horarios Disponibles */
+.timeSelectionContainer {
+    margin-top: 30px; /* Espacio arriba */
+    margin-bottom: 30px;
+}
+
+.timesTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #555;
+    margin: 0 0 15px 0;
+}
+
+/* Contenedor para la cuadrícula de botones de horario */
+.timeSlotsGrid {
+    display: grid; /* Cuadrícula de botones */
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Columnas adaptables */
+    gap: 10px; /* Espacio entre botones */
+}
+
+/* Estilos para cada botón de horario individual */
+.timeSlotButton {
+    padding: 10px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8; /* Fondo suave */
+    color: #333;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Estilo para el botón de horario al pasar el mouse */
+.timeSlotButton:hover:not(:disabled) {
+    background-color: #eee;
+    border-color: #bbb;
+}
+
+/* Estilo para el botón de horario seleccionado */
+/* ¡Cambiamos a un tono rosa oscuro para indicar la selección del horario! */
+.timeSlotButton.selectedTime {
+    background-color: #e91e63; /* Color rosa principal */
+    color: white;
+    border-color: #d81b60; /* Rosa más oscuro */
+    font-weight: 600;
+}
+
+/* Estilo para botones de horario deshabilitados */
+/* .timeSlotButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #eee;
+    color: #555;
+} */
+
+
+/* Contenedor para los botones de navegación (Volver, Continuar) */
+.bookingActions {
+    display: flex;
+    justify-content: space-between; /* Separa los botones */
+    gap: 20px; /* Espacio entre ellos */
+    margin-top: 30px; /* Espacio arriba */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en mobile */
+}
+
+/* Estilos base para los botones de acción (Volver, Continuar) */
+.bookingActions button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    /* Permite que crezcan para ocupar el espacio disponible con flex-wrap */
+     flex-grow: 1;
+     max-width: 200px; /* Ancho máximo si crecen */
+     text-align: center; /* Centra el texto */
+}
+
+/* Estilo específico para el botón "Volver" */
+/* Mantenemos un estilo neutral/gris para la acción de retroceder */
+.backButton {
+    background-color: #ccc; /* Color gris */
+    color: #333;
+}
+.backButton:hover:not(:disabled) {
+    background-color: #bbb;
+}
+
+/* Estilo específico para el botón "Continuar" */
+/* Usamos el color rosa principal de tu marca para el botón de acción principal */
+.nextButton {
+    background-color: #e91e63; /* Color rosa principal de tu marca */
+    color: white;
+}
+.nextButton:hover:not(:disabled) { /* Efecto hover solo si NO está deshabilitado */
+    background-color: #d81b60; /* Rosa más oscuro */
+}
+
+/* Estilo para botones deshabilitados */
+.bookingActions button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===================== Estilos del Paso 3: Complete sus Datos ===================== */
+
+/* Contenedor para el formulario de datos personales */
+.formDataContainer {
+    margin-top: 20px;
+    margin-bottom: 30px; /* Espacio entre el formulario y el resumen/botones */
+    /* Puedes usar grid o flexbox para organizar los campos en columnas si lo necesitas */
+    display: grid;
+    /* En pantallas grandes, 2 columnas con espacio */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas adaptables, min 250px */
+    gap: 20px; /* Espacio entre campos (filas y columnas) */
+}
+
+/* Contenedor individual para cada campo del formulario (Label + Input) */
+.formField {
+    display: flex;
+    flex-direction: column; /* Apila Label y Input */
+    /* gap: 5px; /* Espacio entre label y input */
+}
+
+/* Ajuste específico para el campo de notas (textarea) */
+.formFieldNotes {
+    grid-column: 1 / -1; /* Ocupa todas las columnas disponibles en el grid */
+}
+
+/* Estilos para las etiquetas (Label) de los campos del formulario */
+.formLabel {
+    display: block; /* Asegura que el label esté en su propia línea */
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #555; /* Color de texto secundario */
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+}
+
+/* Estilos para los campos de entrada (Input) del formulario */
+.formInput,
+.formTextArea { /* Aplica a input y textarea */
+    width: 100%; /* Ocupa todo el ancho de su contenedor (formField) */
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Incluye padding y border */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Misma fuente */
+    color: #333;
+    background-color: #f8f8f8; /* Fondo ligeramente gris */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Estilos para el campo de área de texto (Notas) */
+.formTextArea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 100px; /* Altura mínima */
+}
+
+/* Estilo al hacer foco en los campos (input/textarea) */
+.formInput:focus,
+.formTextArea:focus {
+    border-color: #e91e63; /* Borde rosa al hacer foco */
+    outline: none; /* Quita el outline por defecto */
+    box-shadow: 0 0 0 0.2rem rgba(233, 30, 99, 0.25); /* Sombra de foco rosa semi-transparente */
+    background-color: #ffffff; /* Fondo blanco al hacer foco */
+}
+
+/* Opcional: Estilo para texto de ayuda (si lo añades en el HTML) */
+.formHelpText {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+
+/* Bloque de Resumen de la Reserva */
+.bookingSummary {
+    margin-top: 20px; /* Espacio arriba del resumen */
+    margin-bottom: 30px; /* Espacio debajo del resumen */
+    padding: 15px;
+    /* Fondo pastel, similar al bloque de contacto en la landing */
+    background-color: #ffe0e6; /* Rosa pastel muy claro */
+    border-radius: 8px;
+    border: 1px solid #ffcdd2; /* Borde rosa suave */
+    /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); */
+}
+
+/* Título del resumen */
+.summaryTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a2a4d; /* Color oscuro principal */
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ffcdd2; /* Línea punteada suave */
+}
+
+/* Cada línea de detalle en el resumen (Servicio, Fecha, Hora) */
+.summaryDetail {
+    font-size: 1rem;
+    color: #333;
+    margin: 0 0 8px 0; /* Espacio entre líneas de detalle */
+}
+
+.summaryDetail:last-child {
+    margin-bottom: 0; /* Quita margen inferior del último detalle */
+}
+
+.summaryDetail strong {
+    color: #1a2a4d; /* Color oscuro para las etiquetas fuertes */
+}
+
+
+/* Botones de Navegación Finales (ubicados bajo el Paso 3) */
+/* Usamos el mismo contenedor .bookingActions que ya teníamos */
+/* .bookingActions { ... tus estilos ya existentes ... } */
+
+/* Estilo específico para el botón de Confirmar Reserva */
+/* .confirmButton { ... usa .nextButton con posibles ajustes ... } */
+/* Ya definimos que .nextButton usa el color rosa principal, que es lo que queremos para Confirmar. */
+/* Si necesitas un estilo DIFERENTE para Confirmar vs Continuar, puedes añadir reglas aquí */
+/* .bookingActions .confirmButton { background-color: #4caf50; } /* Ejemplo: si quisieras verde para confirmar */
+
+
+/* ===================== Estilos Responsive ===================== */
+
+@media (max-width: 600px) {
+    /* ... (Mantén todos tus ajustes responsive existentes para generales, paso 1, paso 2) ... */
+
+     /* Ajustes responsive para el formulario */
+     .formDataContainer {
+         grid-template-columns: 1fr; /* Una sola columna en mobile */
+         gap: 15px; /* Reduce espacio entre campos */
+         margin-bottom: 20px;
+     }
+
+    .formFieldNotes {
+        grid-column: auto; /* Ya no necesita ocupar todas las columnas, es la única */
+    }
+
+     .formInput,
+     .formTextArea {
+         padding: 8px 10px; /* Reduce padding */
+         font-size: 0.95rem;
+     }
+
+     .formLabel {
+         font-size: 0.9rem;
+         margin-bottom: 3px;
+     }
+
+     .formHelpText {
+         font-size: 0.8rem;
+     }
+
+
+     /* Ajustes responsive para el resumen */
+     .bookingSummary {
+         margin-top: 15px;
+         margin-bottom: 20px;
+         padding: 10px;
+     }
+
+     .summaryTitle {
+         font-size: 1rem;
+         margin-bottom: 10px;
+         padding-bottom: 5px;
+     }
+
+     .summaryDetail {
+         font-size: 0.9rem;
+         margin: 0 0 6px 0;
+     }
+
+     /* Estilos para mensajes de carga */
+.loadingMessage {
+    text-align: center;
+    color: #1a2a4d; /* Color oscuro de tu marca */
+    font-size: 1.1rem;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #fdebf2; /* Fondo rosa pastel */
+    border: 1px solid #ffcdd2; /* Borde rosa suave */
+    border-radius: 4px;
+}
+
+/* Estilos para mensajes de error */
+.errorMessage {
+    text-align: center;
+    color: #d32f2f; /* Un color rojo estándar para errores */
+    font-size: 1rem;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #ffcdd2; /* Fondo rosa/rojo claro */
+    border: 1px solid #ef9a9a; /* Borde rojo suave */
+    border-radius: 4px;
+}
+
+
+    /* Ajustes responsive para los botones de navegación (ya definidos) */
+     /* .bookingActions { ... tus ajustes responsive existentes ... } */
+     /* .bookingActions button { ... tus ajustes responsive existentes ... } */
+}
+
+/* ===================== Estilos Responsive ===================== */
+
+/* Ajustes para pantallas pequeñas (hasta 600px de ancho) */
+@media (max-width: 600px) {
+    .bookingPageContainer {
+        margin: 15px; /* Reduce margen exterior */
+        padding: 15px; /* Reduce padding interior */
+    }
+
+    .pageTitle {
+        font-size: 1.6rem; /* Reduce tamaño título principal */
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+
+     /* Ajustes responsive para el contenedor del paso */
+    .stepContainer {
+        margin-bottom: 25px; /* Reduce margen entre pasos */
+    }
+
+
+    /* Ajustes responsive para el indicador del paso */
+    .stepIndicator {
+         gap: 8px;
+         margin-bottom: 15px;
+         padding-bottom: 8px;
+         flex-wrap: wrap; /* Asegura que el contenido se envuelva */
+    }
+
+    .stepIcon {
+         font-size: 1.3rem;
+    }
+
+    .stepTitle {
+        font-size: 1.1rem;
+         /* flex-grow: 1; */
+    }
+
+     .selectedServiceName {
+         font-size: 0.9rem;
+          /* flex-grow: 1; */
+     }
+
+
+    /* Ajustes responsive para la galería de servicios */
+    .servicesGallery {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Ajusta tamaño mínimo en mobile */
+        gap: 10px; /* Reduce espacio entre tarjetas */
+    }
+
+    /* Ajustes responsive para las tarjetas de servicio */
+    .serviceCard {
+        padding: 10px; /* Reduce padding interno */
+    }
+
+    .serviceIcon {
+        font-size: 1.6rem; /* Reduce tamaño ícono servicio */
+        margin-bottom: 6px;
+    }
+
+    .serviceName {
+        font-size: 1rem; /* Reduce tamaño nombre servicio */
+        margin: 0 0 6px 0;
+    }
+
+    .serviceInfo {
+        gap: 2px;
+        font-size: 0.8rem;
+    }
+
+    .infoIcon {
+        font-size: 0.8rem;
+    }
+
+    .selectedIndicator {
+        font-size: 1.4rem;
+        top: 5px;
+        right: 5px;
+        width: 22px;
+        height: 22px;
+    }
+
+    /* Ajustes responsive para la cuadrícula de horarios */
+    .timeSlotsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Ajusta tamaño mínimo */
+        gap: 6px; /* Reduce espacio */
+    }
+
+    .timeSlotButton {
+        font-size: 0.85rem;
+        padding: 6px 3px;
+    }
+
+    /* Ajustes responsive para botones de navegación */
+    .bookingActions {
+         justify-content: space-around; /* Espacia mejor los botones */
+         gap: 10px; /* Reduce espacio */
+         margin-top: 20px;
+    }
+     .bookingActions button {
+         width: auto;
+         flex-grow: 1;
+         max-width: 150px; /* Reduce ancho máximo */
+         padding: 8px 15px;
+         font-size: 0.9rem;
+     }
+
+}
