@@ -226,7 +226,7 @@ const BookingPage: React.FC = () => {
             notes: formData.notes,
         });
         // Podrías mostrar un mensaje de éxito, redirigir al usuario, etc.
-        alert("Reserva simulada confirmada. Revisa la consola para ver los datos."); // Mensaje de ejemplo
+        alert("Reserva confirmada."); // Mensaje de ejemplo
 
         // Opcional: Limpiar todos los estados para empezar una nueva reserva después de confirmar
         setSelectedServiceId(null);

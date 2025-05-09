@@ -32,11 +32,11 @@ const LoginPage: React.FC = () => {
 
     // Ejemplo básico de simulación (reemplazar con lógica real):
     if (formData.username === 'admin' && formData.password === 'password123') {
-      alert("¡Inicio de sesión exitoso (simulado)! Redirigiendo...");
+      alert("¡Inicio de sesión exitoso!");
       // Aquí iría la lógica de redirección, por ejemplo, usando navigate de react-router-dom
       // navigate('/admin-dashboard');
     } else {
-      alert("Usuario o contraseña incorrectos (simulado).");
+      alert("Usuario o contraseña incorrectos.");
       // Podrías mostrar un mensaje de error en la interfaz
     }
   };
