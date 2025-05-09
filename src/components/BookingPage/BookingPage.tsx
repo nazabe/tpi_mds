@@ -153,7 +153,7 @@ const BookingPage: React.FC = () => {
           formData: formData
       });
       // Podrías mostrar un mensaje de éxito, redirigir al usuario, etc.
-      alert("Reserva simulada confirmada. Revisa la consola para ver los datos."); // Mensaje de ejemplo
+      alert("Reserva confirmada."); // Mensaje de ejemplo
   };
 
 
