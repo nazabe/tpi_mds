@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom'; // Importa Link para la navegación
 // Importaciones necesarias de React y react-icons para el CONTENIDO DE LA LANDING
-import React, { useRef } from 'react'; // Importa useRef para la sección de Servicios
+import { useRef } from 'react'; // Importa useRef para la sección de Servicios
 import styles from './App.module.css'; // Importa estilos CSS Modules específicos de App
 
 // Importa los iconos utilizados en las secciones de la landing page (Top Bar, Hero, About Us, Services)
-import {
-  FaMapMarkerAlt, FaEnvelope, FaFacebookF, FaInstagram, FaGoogle,
-  FaArrowRight, FaPhone, FaChevronLeft, FaChevronRight
-  // FaWhatsapp si lo usas en la Top Bar o About Us
-} from 'react-icons/fa';
+// import {
+//   FaMapMarkerAlt, FaEnvelope, FaFacebookF, FaInstagram, FaGoogle,
+//   FaArrowRight, FaPhone, FaChevronLeft, FaChevronRight
+//   // FaWhatsapp si lo usas en la Top Bar o About Us
+// } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaArrowRight, FaPhone, FaChevronLeft, FaChevronRight} from 'react-icons/fa';
 // Si usas otros iconos en las secciones de la landing, impórtalos aquí
 
 

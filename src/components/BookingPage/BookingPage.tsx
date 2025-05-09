@@ -185,7 +185,7 @@ const BookingPage: React.FC = () => {
 
   // Determinamos si debemos mostrar los botones de navegación finales (Volver y Confirmar)
   // Se muestran solo si estamos en el "Paso 3" (es decir, si hay servicio, fecha y hora seleccionados)
-  const showFinalButtons = selectedServiceId !== null && selectedDate !== null && selectedTime !== null;
+  // const showFinalButtons = selectedServiceId !== null && selectedDate !== null && selectedTime !== null;
 
 
   return (
