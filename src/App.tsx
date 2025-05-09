@@ -117,7 +117,7 @@ function App() {
                      <FaPhone className={styles.contactIcon} /> {/* O FaWhatsapp */}
                   </div>
                   <p className={styles.contactText}>
-                    Consultas y turnos al <a href="tel:+5491123152163">112 315 2163</a>
+                    Consultas y turnos al <a href="tel:+5491123152163">+54 911 23 152163</a>
                     {' '} (<a href="https://wa.me/5491123152163" target="_blank" rel="noopener noreferrer">Enviar WhatsApp</a>)
                   </p>
                 </div>
@@ -196,7 +196,7 @@ function App() {
               {/* --- Masajes --- */}
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/woman-567021_1280.jpg"
+                  src="/mds/images/services/woman-567021_1280.jpg"
                   alt="Imagen de Masaje Anti-stress"
                   className={styles.serviceImage}
                 />
@@ -205,7 +205,7 @@ function App() {
 
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/massage-2768832_1280.jpg"
+                  src="/mds/images/services/massage-2768832_1280.jpg"
                   alt="Imagen de Masaje Descontracturante"
                   className={styles.serviceImage}
                 />
@@ -214,7 +214,7 @@ function App() {
 
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/people-3184615_1280.jpg"
+                  src="/mds/images/services/people-3184615_1280.jpg"
                   alt="Imagen de Masaje con Piedras Calientes"
                   className={styles.serviceImage}
                 />
@@ -223,7 +223,7 @@ function App() {
 
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/massage-3795693_1280.jpg"
+                  src="/mds/images/services/massage-3795693_1280.jpg"
                   alt="Imagen de Masaje Circulatorio"
                   className={styles.serviceImage}
                 />
@@ -233,7 +233,7 @@ function App() {
               {/* --- Belleza --- */}
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/face-2722810_1280.jpg"
+                  src="/mds/images/services/face-2722810_1280.jpg"
                   alt="Imagen de Lifting de Pestaña"
                   className={styles.serviceImage}
                 />
@@ -242,7 +242,7 @@ function App() {
 
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/ai-generated-8270432_1280.jpg"
+                  src="/mds/images/services/ai-generated-8270432_1280.jpg"
                   alt="Imagen de Depilación Facial"
                   className={styles.serviceImage}
                 />
@@ -251,7 +251,7 @@ function App() {
 
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/physical-therapy-2133286_1280.jpg"
+                  src="/mds/images/services/physical-therapy-2133286_1280.jpg"
                   alt="Imagen de Belleza de Manos y Pies"
                   className={styles.serviceImage}
                 />
@@ -261,7 +261,7 @@ function App() {
               {/* --- Tratamientos Faciales --- */}
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/831TreatmentShoot_Derma_0204.jpg"
+                  src="/mds/images/services/831TreatmentShoot_Derma_0204.jpg"
                   alt="Imagen de Punta de Diamante Microexfoliación"
                   className={styles.serviceImage}
                 />
@@ -270,7 +270,7 @@ function App() {
 
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/facial-8224799_1280.jpg"
+                  src="/mds/images/services/facial-8224799_1280.jpg"
                   alt="Imagen de Limpieza Profunda + Hidratación"
                   className={styles.serviceImage}
                 />
@@ -279,7 +279,7 @@ function App() {
 
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/conoce-todo-sobre-la-radio-frecuencia-facial.jpg"
+                  src="/mds/images/services/conoce-todo-sobre-la-radio-frecuencia-facial.jpg"
                   alt="Imagen de Crio Frecuencia Facial"
                   className={styles.serviceImage}
                 />
@@ -289,7 +289,7 @@ function App() {
               {/* --- Tratamientos Corporales --- */}
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/m_116_1677502402.jpg"
+                  src="/mds/images/services/m_116_1677502402.jpg"
                   alt="Imagen de VelaSlim"
                   className={styles.serviceImage}
                 />
@@ -298,7 +298,7 @@ function App() {
 
               <div className={styles.serviceCard}>
                 <img
-                  src="src/images/services/beautiful-young-woman-facial-treatment-beauty-salon-applying-cream_219728-3075.avif"
+                  src="/mds/images/services/beautiful-young-woman-facial-treatment-beauty-salon-applying-cream_219728-3075.avif"
                   alt="Imagen de DermoHealth"
                   className={styles.serviceImage}
                 />

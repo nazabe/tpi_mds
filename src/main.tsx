@@ -16,8 +16,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// --- Configuración del Router con Layout ---
+// --- Configuración del Router con Layout y Basename ---
 // Definimos un enrutador usando createBrowserRouter
+// Incluimos la configuracion del basename directamente aqui
 const router = createBrowserRouter([
   {
     // Esta ruta principal '/' renderiza el Layout
@@ -41,30 +42,20 @@ const router = createBrowserRouter([
         element: <LoginPage />, // El contenido de la ruta /login es el componente LoginPage
       },
       // Puedes añadir más rutas anidadas aquí
+      // Por ejemplo, para manejar rutas 404 (páginas no encontradas)
+      // {
+      //   path: "*", // Coincide con cualquier ruta no definida antes
+      //   element: <div>404 - Página no encontrada</div>, // O un componente NotFoundPage
+      // },
     ],
   },
   // Opcionalmente, puedes definir rutas FUERA de este Layout si necesitas páginas
-  // que NO muestren el Header o Footer global (ej: un dashboard de administración)
-]);
-// --- Fin Configuración del Router ---
-
-// --- Configuración del Basename ---
-// Añadimos la opción 'basename' a createBrowserRouter
-// Reemplaza "/mds/" con la ruta base real si es diferente
-const routerWithBasename = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      { index: true, element: <App /> },
-      { path: "reservar", element: <BookingPage /> },
-      { path: "login", element: <LoginPage /> },
-    ],
-  },
+  // que NO muestren el Header o Footer global
 ], {
-  basename: "/mds/", // <-- AÑADE esta línea para especificar la ruta base
+  // Configuración del Basename: Reemplaza "/mds/" con la ruta base real si es diferente
+  basename: "/mds/", // <-- Especifica la ruta base de la aplicacion
 });
-// --- Fin Configuración del Basename ---
+// --- Fin Configuración del Router ---
 
 
 // --- Renderizado de la Aplicación ---
@@ -73,7 +64,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode> {/* StrictMode ayuda a detectar problemas potenciales */}
      {/* RouterProvider provee el enrutador a toda la aplicación */}
     {/* Usa el router con basename configurado */}
-    <RouterProvider router={routerWithBasename} />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );
 // --- Fin Renderizado ---
