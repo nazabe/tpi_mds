@@ -50,9 +50,6 @@ const servicesData: Service[] = [
   { id: 11, name: "VelaSlim", duration: "45 minutos", price: "$10.500", icon: <FaHeart /> },
   { id: 12, name: "DermoHealth", duration: "40 minutos", price: "$9.000", icon: <FaHeart /> },
   // Descomentados y actualizados con los datos proporcionados
-   { id: 13, name: "Criofrecuencia Corporal", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> }, // <-- Actualiza si tienes datos
-   { id: 14, name: "Ultracavitación", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> }, // <-- Actualiza si tienes datos
-
 
   // Servicios Grupales (Mantengo como estaban en tu código, comentados)
   // { id: 15, name: "Hidromasajes", duration: "XX minutos", price: "$XXXXX,XX", icon: <FaHeart /> },
