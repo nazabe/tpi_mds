@@ -1,53 +1,79 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css'; // Estilos globales
-import LoginPage from './components/LoginPage/LoginPage.tsx'; // Importa el componente LoginPage
 
-// Importa tus componentes de página
+// Importa tus componentes de página específicos
 import App from './App.tsx'; // Tu componente de la landing page
 import BookingPage from './components/BookingPage/BookingPage.tsx'; // El componente de la página de reserva
-// Importa el nuevo componente Layout
+import LoginPage from './components/LoginPage/LoginPage.tsx'; // Tu componente de la página de login
+
+// Importa el componente Layout
 import Layout from './components/Layout/Layout.tsx';
 
 // Importa las herramientas de enrutamiento necesarias
 import {
   createBrowserRouter,
   RouterProvider,
-  // Puedes importar Outlet aquí si lo prefieres, pero ya lo importamos en Layout
 } from "react-router-dom";
 
 // --- Configuración del Router con Layout ---
-// Definimos una ruta principal ('/') que usa el Layout
+// Definimos un enrutador usando createBrowserRouter
 const router = createBrowserRouter([
   {
+    // Esta ruta principal '/' renderiza el Layout
+    // Todas las rutas definidas en 'children' se renderizarán dentro del Outlet del Layout
     path: "/",
-    element: <Layout />, // Tu componente Layout
+    element: <Layout />, // El elemento principal es el Layout
     children: [
       {
-        index: true,
-        element: <App />, // Tu componente App (landing)
+        // La ruta index renderiza el contenido de la landing page (App)
+        index: true, // `index: true` indica que esta es la ruta por defecto para el path padre ('/')
+        element: <App />, // El contenido de la ruta principal es el componente App
       },
       {
-        path: "reservar",
-        element: <BookingPage />, // Tu componente BookingPage
+        // Esta ruta renderiza la página de reserva
+        path: "reservar", // El path 'reservar' se combina con el path padre '/' para formar '/reservar'
+        element: <BookingPage />, // El contenido de la ruta /reservar es el componente BookingPage
       },
       {
-        path: "login", // La ruta para /login
-        element: <LoginPage />, // <-- Asegúrate de que sea LoginPage aquí
+        // Esta ruta renderiza la página de inicio de sesión
+        path: "login", // El path 'login' se combina con el path padre '/' para formar '/login'
+        element: <LoginPage />, // El contenido de la ruta /login es el componente LoginPage
       },
-      // ... otras rutas
+      // Puedes añadir más rutas anidadas aquí
     ],
   },
-  // ... rutas fuera del layout si las tienes
+  // Opcionalmente, puedes definir rutas FUERA de este Layout si necesitas páginas
+  // que NO muestren el Header o Footer global (ej: un dashboard de administración)
 ]);
 // --- Fin Configuración del Router ---
 
+// --- Configuración del Basename ---
+// Añadimos la opción 'basename' a createBrowserRouter
+// Reemplaza "/mds/" con la ruta base real si es diferente
+const routerWithBasename = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <App /> },
+      { path: "reservar", element: <BookingPage /> },
+      { path: "login", element: <LoginPage /> },
+    ],
+  },
+], {
+  basename: "/mds/", // <-- AÑADE esta línea para especificar la ruta base
+});
+// --- Fin Configuración del Basename ---
+
 
 // --- Renderizado de la Aplicación ---
+// createRoot es la nueva forma de renderizar en React 18+
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-     {/* RouterProvider hace que el router esté disponible */}
-    <RouterProvider router={router} />
+  <React.StrictMode> {/* StrictMode ayuda a detectar problemas potenciales */}
+     {/* RouterProvider provee el enrutador a toda la aplicación */}
+    {/* Usa el router con basename configurado */}
+    <RouterProvider router={routerWithBasename} />
   </React.StrictMode>,
 );
 // --- Fin Renderizado ---
