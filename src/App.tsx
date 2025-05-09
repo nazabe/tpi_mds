@@ -117,7 +117,7 @@ function App() {
                      <FaPhone className={styles.contactIcon} /> {/* O FaWhatsapp */}
                   </div>
                   <p className={styles.contactText}>
-                    Consultas y turnos al <a href="tel:+5491123152163">112 315 2163</a>
+                    Consultas y turnos al <a href="tel:+5491123152163">+54 911 23 152163</a>
                     {' '} (<a href="https://wa.me/5491123152163" target="_blank" rel="noopener noreferrer">Enviar WhatsApp</a>)
                   </p>
                 </div>

@@ -58,16 +58,16 @@ const Footer: React.FC = () => {
             {/* Contenedor de iconos de redes sociales */}
             <div className={styles.socialIcons}>
               {/* Enlaces a perfiles sociales (reemplaza con tus URLs reales) */}
-              <a href="https://www.facebook.com/tumarca" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FaFacebookF className={styles.socialIcon} />
               </a>
-              <a href="https://www.instagram.com/tumarca" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FaInstagram className={styles.socialIcon} />
               </a>
-              <a href="https://twitter.com/tumarca" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <FaTwitter className={styles.socialIcon} />
               </a>
-              <a href="https://wa.me/tunumero" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <a href="https://wa.me/5491123152163" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <FaWhatsapp className={styles.socialIcon} />
               </a>
             </div> {/* Fin socialIcons */}
