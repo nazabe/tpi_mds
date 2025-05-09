@@ -18,7 +18,8 @@ import {
 
 // --- Configuración del Router con Layout ---
 // Definimos una ruta principal ('/') que usa el Layout
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
   {
     path: "/",
     element: <Layout />, // Tu componente Layout
@@ -37,9 +38,14 @@ const router = createBrowserRouter([
       },
       // ... otras rutas
     ],
+    
+      
   },
   // ... rutas fuera del layout si las tienes
-]);
+],
+{
+        basename: "/mds",
+      });
 // --- Fin Configuración del Router ---
 
 
