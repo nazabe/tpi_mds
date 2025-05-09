@@ -249,8 +249,22 @@ const BookingPage: React.FC = () => {
                  ) : (
                      <FaCalendarAlt className={styles.stepIcon} /> // Actual (azul oscuro)
                  )}
-                 <h2 className={styles.stepTitle}>Paso 2: Seleccione Fecha y Hora</h2>
+                 <h2 className={styles.stepTitle}>Paso 2: Seleccione Profesional, Fecha y Hora</h2>
               </div> {/* Fin stepIndicator */}
+
+                {/* Selección de Profesional */}
+                <div className={styles.professionalSelectionContainer}>
+                <label htmlFor="professionalSelect" className={styles.dateLabel}>
+                    Seleccione profesional a elección
+                </label>
+                <select id="professionalSelect" className={styles.dateInput}>
+                    <option value="">-- Seleccione un profesional --</option>
+                    <option value="1">Dra. López - 42 años</option>
+                    <option value="2">Dr. García - 37 años</option>
+                    <option value="3">Lic. Pérez - 29 años</option>
+                </select>
+                
+                </div>
 
               {/* Sección de Selección de Fecha */}
               <div className={styles.dateSelectionContainer}>

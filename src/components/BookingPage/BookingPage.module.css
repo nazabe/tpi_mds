@@ -200,7 +200,7 @@
 /* Estilos para el input del DatePicker (el campo de texto donde se ve la fecha) */
 /* La librería react-datepicker aplica estilos por defecto, pero podemos sobreescribirlos */
 .dateInput {
-    width: 100%; /* Ocupa todo el ancho */
+    width: 300px; /* Ocupa todo el ancho */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
